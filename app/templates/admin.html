@@ -1,8 +1,6 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container">
-<!-- 
+    <!-- 
     <h1>Admin Zone</h1>
     <p>All the admins:</p>
     <div class="card">
@@ -16,17 +14,15 @@
 
     <p>All humans alive:</p>
     {% for human in humans %}
-        <p>{{human}} haoo</p>
-    {% endfor %}
-
-    {% if new_human_form %}
+    <p>{{human}} haoo</p>
+    {% endfor %} {% if new_human_form %}
     <p>Here you can create new Human</p>
     <form action="" method="name">
         {{ form.hidden_tag() }}
         <p>
-            {{ new_human_form.name.label }}<br>
-            {{ new_human_form.name(cols=32, rows=4) }}<br>
-            {% for error in new_human_form.name.errors %}
+            {{ new_human_form.name.label }}
+            <br> {{ new_human_form.name(cols=32, rows=4) }}
+            <br> {% for error in new_human_form.name.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
@@ -41,22 +37,17 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.post.label }}<br>
-            {{ form.post(cols=32, rows=4) }}<br>
+            {{ form.post.label }} <br>
+            {{ form.post(cols=32, rows=4) }} <br>
             {% for error in form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-    {% endif %}
-    {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %}
-    {% if prev_url %}
+    {% endif %} {% for post in posts %} {% include '_post.html' %} {% endfor %} {% if prev_url %}
     <a href="{{ prev_url }}">Newer posts</a>
-    {% endif %}
-    {% if next_url %}
+    {% endif %} {% if next_url %}
     <a href="{{ next_url }}">Older posts</a>
     {% endif %}
 </div>

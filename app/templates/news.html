@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container">
     <h1>News</h1>
     <p>Below are the news from our group:</p>
@@ -9,10 +7,24 @@
         <div class="card-body">
             <h5 class="card-title">New NAP-XPS pump</h5>
             <p class="card-text">The article says: {{ article.body|safe }}</p>
-            
+            <a href="{{ url_for('.article', id=article.id) }}">Naa</a>
         </div>
     </div>
-    <br>
+    <br> 
     {% endfor %}
+
+    <ul class="pagination">
+        {% if prev_url %}
+            <li class="page-item"><a class="page-link" href="{{ prev_url }}">Newer</a></li>
+        {% elif not prev_url %}
+        <li class="page-item disabled"><a class="page-link" href="{{ prev_url }}">Newer</a></li>
+        {% endif %}
+        {% if next_url %}
+        <li class="page-item"><a class="page-link" href="{{ next_url }}">Older</a></li>
+        {% elif not next_url %}
+        <li class="page-item disabled"><a class="page-link" href="{{ next_url }}">Older</a></li>
+        {% endif %}
+    </ul>
+
 </div>
 {% endblock %}

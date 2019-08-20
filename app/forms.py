@@ -9,7 +9,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 class PostNewsArticle(FlaskForm):
-    post = TextAreaField('Say something', validators=[
+    post = TextAreaField('Write news', validators=[
         DataRequired(), Length(min=1)])
     submit = SubmitField('Submit')
 
