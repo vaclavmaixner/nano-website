@@ -9,4 +9,4 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    NEWS_ARTICLES_PER_PAGE = 2
+    NEWS_ARTICLES_PER_PAGE = 5

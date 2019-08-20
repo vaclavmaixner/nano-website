@@ -18,7 +18,7 @@ def index():
 def news():
     #articles = Article.query.all()
     page = request.args.get('page', 1, type=int)
-    articles = Article.query.paginate(
+    articles = Article.query.order_by(Article.timestamp.desc()).paginate(
         page, app.config['NEWS_ARTICLES_PER_PAGE'], False)
     next_url = url_for('news', page=articles.next_num) \
         if articles.has_next else None
@@ -34,6 +34,21 @@ def article(id):
     return render_template('news_post.html', articles = [article])
 
 
+@app.route('/edit/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def edit(id):
+    article = Article.query.get_or_404(id)
+
+    form = PostNewsArticle()
+    if form.validate_on_submit():
+        article.body = form.post.data
+        db.session.add(article)
+        db.session.commit()
+        flash('The post has been updated.')
+        return redirect(url_for('admin', id=article.id))
+
+    form.post.data = article.body
+    return render_template('edit_post.html', form=form)
 
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required
@@ -58,7 +73,16 @@ def admin():
         db.session.commit()
         flash('Your new human is now alive!')
 
-    return render_template('admin.html', users=users, form=form, new_human_form=new_human_form, humans=humans)
+    page = request.args.get('page', 1, type=int)
+    articles = Article.query.order_by(Article.timestamp.desc()).paginate(
+        page, app.config['NEWS_ARTICLES_PER_PAGE'], False)
+    next_url = url_for('news', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('news', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('admin.html', users=users, form=form, new_human_form=new_human_form, humans=humans, articles=articles.items, next_url=next_url,
+                           prev_url=prev_url)
 
 
 @app.route('/detail/<name>', methods=['GET', 'POST'])
