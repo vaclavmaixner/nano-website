@@ -16,12 +16,13 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">New NAP-XPS pump</h5>
-            <p class="card-text">The article says: {{ article.body|safe }}</p>
-            <p>
+            <p class="card-text">{{ article.body|safe }}</p>
+            <hr>
+            <p class="text-right">
                 </a>
                 <a class="btn btn-primary" href="{{ url_for('.article', id=article.id) }}">
                         <i class="fa fa-eye"></i> View
-                </a>
+                </a> 
                 <a class="btn btn-primary" href="{{ url_for('.edit', id=article.id) }}">
                         <i class="fa fa-cog"></i> Edit  
                 </a>
