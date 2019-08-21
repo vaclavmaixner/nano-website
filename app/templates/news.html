@@ -12,6 +12,8 @@
             <h5 class="card-title">New NAP-XPS pump</h5>
             <p class="card-text">{{ article.body|safe }}</p>
             <a style="float: right;" href="{{ url_for('.article', id=article.id) }}">View</a>
+            <img src="{{url_for('static', variable="img", filename='img/ceo.jpeg')}}" />
+            <p>"{{ article.body }}"</p>
         </div>
     </div>
     <br> 
