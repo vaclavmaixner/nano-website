@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
 class PostNewsArticle(FlaskForm):
     post = TextAreaField(u'Write news', validators=[
         DataRequired(), Length(min=1)])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Submit News')
 
 class CreateNewHuman(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])

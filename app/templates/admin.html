@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 <div class="container">
     <!-- 
     <h1>Admin Zone</h1>
@@ -73,30 +74,46 @@
     <p>{{ new_human_form.submit() }}</p>
     {% endif %}
     <hr> -->
+    <h2>Add News</h2>
+    <form method="POST"  action="{{url_for('create_news')}}">
+        <p>
+            {{ news_form.csrf_token }}
+            {{ news_form.post.label }} <br>
+            {{ news_form.post}} <br>
+            {% for error in news_form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <!-- <button type="submit" class="btn btn-primary">{{ news_form.submit() }}</button> -->
+        <!--## <p>{{ news_form.submit() }}</p> -->
+        <input type="submit" value="Submit">
+    </form>
 
-    <form method="POST" action="{{url_for('admin')}}">
-        {{ new_human_form.csrf_token }}
+    <form method="POST" action="{{url_for('create_human')}}">
+        {{ human_form.csrf_token }}
 
-        {{ new_human_form.name.label }} <br>
-        {{ new_human_form.name }} <br>
-        {% for error in new_human_form.name.errors %}
+        {{ human_form.name.label }} <br>
+        {{ human_form.name }} <br>
+        {% for error in human_form.name.errors %}
           <span style="color: red;">[{{ error }}]</span><br>
           {% endfor %}
 
-        {{ new_human_form.full_name.label }} <br>
-        {{ new_human_form.full_name }} <br>
+        {{ human_form.full_name.label }} <br>
+        {{ human_form.full_name }} <br>
 
-        {{ new_human_form.position.label }} <br>
-        {{ new_human_form.position }} <br>
+        {{ human_form.position.label }} <br>
+        {{ human_form.position }} <br>
 
-        {{ new_human_form.email.label }} <br>
-        {{ new_human_form.email }} <br>
+        {{ human_form.email.label }} <br>
+        {{ human_form.email }} <br>
 
-        {{ new_human_form.telephone.label }} <br>
-        {{ new_human_form.telephone }} <br>
+        {{ human_form.telephone.label }} <br>
+        {{ human_form.telephone }} <br>
 
         <input type="submit" value="Submit">
     </form>   
+
+    
 
  <!-- Navigation for editing different parts of the website -->
  <ul class="nav nav-tabs">
@@ -110,22 +127,6 @@
       <a class="nav-link" href="#">People</a>
     </li>
   </ul>
-
-    <h2>Add News</h2>
-    {% if form %}
-    <form action="" method="post">
-        <!-- {{ form.hidden_tag() }} -->
-        <p>
-            {{ form.post.label }} <br>
-            {{ form.post(cols=32, rows=4) }} <br>
-            {% for error in form.post.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <!-- <button type="submit" class="btn btn-primary">{{ form.submit() }}</button> -->
-        <p>{{ form.submit() }}</p>
-    </form>
-    {% endif %}
 
     <h2>Edit News</h2>
     {% for article in articles %}

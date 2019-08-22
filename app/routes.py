@@ -56,24 +56,22 @@ def admin():
     users = User.query.all()
     humans = Human.query.all()
 
-    form = PostNewsArticle()
-    new_human_form = CreateNewHuman()
+    news_form = PostNewsArticle()
+    human_form = CreateNewHuman()
+     # if form.validate_on_submit():
+    #     article = Article(body=form.post.data)
+    #     db.session.add(article)
+    #     db.session.commit()
+    #     flash('Your post is now live!')
 
-    if form.validate_on_submit():
-        article = Article(body=form.post.data)
-        db.session.add(article)
-        db.session.commit()
-        flash('Your post is now live!')
-
-    if new_human_form.validate_on_submit():
-        new_human = Human(name=new_human_form.name.data,
-                          full_name=new_human_form.full_name.data, position=new_human_form.position.data,
-                          email=new_human_form.email.data, telephone=new_human_form.telephone.data,
-                          links=new_human_form.links.data, ids=new_human_form.ids.data)
-        db.session.add(new_human)
-        db.session.commit()
-        flash('Your new human is now alive!')
-
+    # if new_human_form.validate_on_submit():
+    #     new_human = Human(name=new_human_form.name.data,
+    #                       full_name=new_human_form.full_name.data, position=new_human_form.position.data,
+    #                       email=new_human_form.email.data, telephone=new_human_form.telephone.data,
+    #                       links=new_human_form.links.data, ids=new_human_form.ids.data)
+    #     db.session.add(new_human)
+    #     db.session.commit()
+    #     flash('Your new human is now alive!')
     page = request.args.get('page', 1, type=int)
     articles = Article.query.order_by(Article.timestamp.desc()).paginate(
         page, app.config['NEWS_ARTICLES_PER_PAGE'], False)
@@ -82,8 +80,39 @@ def admin():
     prev_url = url_for('news', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('admin.html', users=users, form=form, new_human_form=new_human_form, humans=humans, articles=articles.items, next_url=next_url,
+    return render_template('admin.html', users=users, news_form=news_form, human_form=human_form, humans=humans, articles=articles.items, next_url=next_url,
                            prev_url=prev_url)
+
+
+@app.route('/create-news', methods=['GET', 'POST']) 
+def create_news():
+    news_form = PostNewsArticle()
+    human_form = CreateNewHuman()
+
+    if news_form.validate_on_submit():
+        article = Article(body=news_form.post.data)
+        db.session.add(article)
+        db.session.commit()
+        flash('Your post is now live!')
+        
+    return render_template('admin.html', news_form=news_form, human_form=human_form)
+
+
+@app.route('/create-human', methods=['GET', 'POST']) 
+def create_human():
+    news_form = PostNewsArticle()
+    human_form = CreateNewHuman()
+
+    if human_form.validate_on_submit():
+        new_human = Human(name=human_form.name.data,
+                          full_name=human_form.full_name.data, position=human_form.position.data,
+                          email=human_form.email.data, telephone=human_form.telephone.data,
+                          links=human_form.links.data, ids=human_form.ids.data)
+        db.session.add(new_human)
+        db.session.commit()
+        flash('Your new human is now alive!')
+
+    return render_template('admin.html', news_form=news_form, human_form=human_form)
 
 
 @app.route('/detail/<name>', methods=['GET', 'POST'])
