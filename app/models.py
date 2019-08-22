@@ -45,3 +45,9 @@ class Human(db.Model):
     telephone = db.Column(db.String(120))
     links = db.Column(db.String(120))
     ids = db.Column(db.String())
+    ##orcid = db.Column(db.String())
+    ##researcher_id = db.Column(db.String())
+    ##scopus_id = db.Column(db.String())
+
+    def __repr__(self):
+        return '<Human {}>'.format(self.full_name)

@@ -19,6 +19,85 @@
   </div>
 
 
+  <p>All humans alive:</p>
+  {% for human in humans %}
+  <p>{{human.name}} ____ That is this humans name</p>
+  {% endfor %}
+  <hr>
+  <!-- <p>All humans alive:</p>
+    {% for human in humans %}
+    <p>{{human.name}} haoo</p>
+    {% endfor %}
+    {% if new_human_form %}
+    <p>Here you can create new Human</p>
+    <form action="" method="name">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ new_human_form.name.label }}
+            <br> {{ new_human_form.name(cols=32, rows=4) }}
+            <br> {% for error in new_human_form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    </form>
+    <form action="" method="full_name">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ new_human_form.full_name.label }}
+            <br> {{ new_human_form.full_name(cols=32, rows=4) }}
+            <br> {% for error in new_human_form.full_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    </form>
+    <form action="" method="position">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ new_human_form.position.label }}
+            <br> {{ new_human_form.position(cols=32, rows=4) }}
+            <br> {% for error in new_human_form.position.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    </form>
+    <form action="" method="email">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ new_human_form.email.label }}
+            <br> {{ new_human_form.email(cols=32, rows=4) }}
+            <br> {% for error in new_human_form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    </form>
+    <p>{{ new_human_form.submit() }}</p>
+    {% endif %}
+    <hr> -->
+
+    <form method="POST" action="{{url_for('admin')}}">
+        {{ new_human_form.csrf_token }}
+
+        {{ new_human_form.name.label }} <br>
+        {{ new_human_form.name }} <br>
+        {% for error in new_human_form.name.errors %}
+          <span style="color: red;">[{{ error }}]</span><br>
+          {% endfor %}
+
+        {{ new_human_form.full_name.label }} <br>
+        {{ new_human_form.full_name }} <br>
+
+        {{ new_human_form.position.label }} <br>
+        {{ new_human_form.position }} <br>
+
+        {{ new_human_form.email.label }} <br>
+        {{ new_human_form.email }} <br>
+
+        {{ new_human_form.telephone.label }} <br>
+        {{ new_human_form.telephone }} <br>
+
+        <input type="submit" value="Submit">
+    </form>   
+
  <!-- Navigation for editing different parts of the website -->
  <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -43,7 +122,7 @@
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <button type="submit" class="btn btn-primary">{{ form.submit() }}</button>
+        <!-- <button type="submit" class="btn btn-primary">{{ form.submit() }}</button> -->
         <p>{{ form.submit() }}</p>
     </form>
     {% endif %}
@@ -69,26 +148,9 @@
     <br> {% endfor %}
     <hr>
 
-    <p>All humans alive:</p>
-    {% for human in humans %}
-    <p>{{human}} haoo</p>
-    {% endfor %} {% if new_human_form %}
-    <p>Here you can create new Human</p>
-    <form action="" method="name">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ new_human_form.name.label }}
-            <br> {{ new_human_form.name(cols=32, rows=4) }}
-            <br> {% for error in new_human_form.name.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ new_human_form.submit() }}</p>
-    </form>
-    {% endif %}
-
+    
     <!-- Form to submit new News post -->
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <!-- <h1>Hi, {{ current_user.username }}!</h1>
     <p>Here you can create new News Article</p>
     {% if form %}
     <form action="" method="post">
@@ -102,7 +164,7 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-    {% endif %}
+    {% endif %} -->
   
 </div>
 {% endblock %}

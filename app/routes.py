@@ -57,13 +57,14 @@ def admin():
     humans = Human.query.all()
 
     form = PostNewsArticle()
+    new_human_form = CreateNewHuman()
+
     if form.validate_on_submit():
         article = Article(body=form.post.data)
         db.session.add(article)
         db.session.commit()
         flash('Your post is now live!')
 
-    new_human_form = CreateNewHuman()
     if new_human_form.validate_on_submit():
         new_human = Human(name=new_human_form.name.data,
                           full_name=new_human_form.full_name.data, position=new_human_form.position.data,
