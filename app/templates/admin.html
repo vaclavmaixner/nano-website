@@ -11,7 +11,44 @@
     </div>
     <br>
  -->
-    <h3>News Articles</h3>
+ <div class="alert alert-success" role="alert">
+    <h3>Welcome to Admin zone</h3>
+    <p class="lead">
+        Here you can edit the content of this webpage.
+      </p>
+  </div>
+
+
+ <!-- Navigation for editing different parts of the website -->
+ <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Articles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">People</a>
+    </li>
+  </ul>
+
+    <h2>Add News</h2>
+    {% if form %}
+    <form action="" method="post">
+        <!-- {{ form.hidden_tag() }} -->
+        <p>
+            {{ form.post.label }} <br>
+            {{ form.post(cols=32, rows=4) }} <br>
+            {% for error in form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <button type="submit" class="btn btn-primary">{{ form.submit() }}</button>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+
+    <h2>Edit News</h2>
     {% for article in articles %}
     <div class="card">
         <div class="card-body">

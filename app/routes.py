@@ -111,6 +111,11 @@ def about_us():
     return render_template('about-us.html')
 
 
+@app.route('/people')
+def people():
+    return render_template('people.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
