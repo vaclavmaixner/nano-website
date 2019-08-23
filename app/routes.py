@@ -34,21 +34,21 @@ def news_article(id):
     return render_template('news_post.html', articles = [article])
 
 
-@app.route('/edit/<int:id>', methods = ['GET', 'POST'])
+@app.route('/edit_news/<int:id>', methods = ['GET', 'POST'])
 @login_required
-def edit(id):
-    article = Article.query.get_or_404(id)
+def edit_news(id):
+    news_article = Article.query.get_or_404(id)
 
-    form = PostNewsArticle()
-    if form.validate_on_submit():
-        article.body = form.post.data
-        db.session.add(article)
+    news_form = PostNewsArticle()
+    if news_form.validate_on_submit():
+        news_article.body = form.post.data
+        db.session.add(news_article)
         db.session.commit()
         flash('The post has been updated.')
-        return redirect(url_for('admin', id=article.id))
+        return redirect(url_for('admin', id=news_article.id))
 
-    form.post.data = article.body
-    return render_template('edit_post.html', form=form)
+    news_form.post.data = news_article.body
+    return render_template('edit_post.html', form=news_form)
 
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required
