@@ -44,10 +44,11 @@ class Human(db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     telephone = db.Column(db.String(120))
     links = db.Column(db.String(120))
-    ids = db.Column(db.String())
-    ##orcid = db.Column(db.String())
-    ##researcher_id = db.Column(db.String())
-    ##scopus_id = db.Column(db.String())
+    ##ids = db.Column(db.String())
+    orcid = db.Column(db.String(64))
+    researcher_id = db.Column(db.String(64))
+    scopus_id = db.Column(db.String())
+    #about_text = db.Column(db.String(64))
 
     def __repr__(self):
         return '<Human {}>'.format(self.full_name)

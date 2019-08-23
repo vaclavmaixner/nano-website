@@ -19,7 +19,7 @@
       </p>
   </div>
 
-  
+
   <p>All humans alive:</p>
   {% for human in humans %}
   <p>{{human.name}} ____ That is this humans name</p>
@@ -111,6 +111,9 @@
         {{ human_form.telephone.label }} <br>
         {{ human_form.telephone }} <br>
 
+        {{ human_form.orcid.label }} <br>
+        {{ human_form.orcid }} <br>
+
         <input type="submit" value="Submit">
     </form>   
 
@@ -143,6 +146,18 @@
                         <i class="fa fa-cog"></i> Edit  
                 </a>
             </p>
+        </div>
+    </div></p>
+    <br> {% endfor %}
+    <hr>
+
+    <h2>Edit Humans</h2>
+    {% for human in humans %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">A human</h5>
+            <p class="card-text">Full name: {{ human.full_name }}</p>
+            <p class="card-text">Position: {{ human.position }}</p>
         </div>
     </div></p>
     <br> {% endfor %}

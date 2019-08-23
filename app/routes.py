@@ -41,7 +41,7 @@ def edit_news(id):
 
     news_form = PostNewsArticle()
     if news_form.validate_on_submit():
-        news_article.body = form.post.data
+        news_article.body = news_form.post.data
         db.session.add(news_article)
         db.session.commit()
         flash('The post has been updated.')
@@ -107,7 +107,8 @@ def create_human():
         new_human = Human(name=human_form.name.data,
                           full_name=human_form.full_name.data, position=human_form.position.data,
                           email=human_form.email.data, telephone=human_form.telephone.data,
-                          links=human_form.links.data, ids=human_form.ids.data)
+                          orcid=human_form.orcid.data, links = human_form.links.data,
+                          researcher_id=human_form.researcher_id.data, scopus_id=human_form.scopus_id.data)
         db.session.add(new_human)
         db.session.commit()
         flash('Your new human is now alive!')
