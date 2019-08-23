@@ -7,7 +7,7 @@
         <div class="card-body">
             <h5 class="card-title">New NAP-XPS pump</h5>
             <p class="card-text">The article says: {{ article.body|safe }}</p>
-            <a href="{{ url_for('.article', id=article.id) }}">Naa</a>
+            <a href="{{ url_for('.news_article', id=article.id) }}">Naa</a>
         </div>
     </div>
     <br> {% endfor %}

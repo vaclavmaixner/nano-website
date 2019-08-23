@@ -29,7 +29,7 @@ def news():
 
 
 @app.route('/news/<int:id>')
-def article(id):
+def news_article(id):
     article = Article.query.get_or_404(id)
     return render_template('news_post.html', articles = [article])
 

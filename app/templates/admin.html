@@ -89,6 +89,7 @@
         <input type="submit" value="Submit">
     </form>
 
+    <h2>Add Humans</h2>
     <form method="POST" action="{{url_for('create_human')}}">
         {{ human_form.csrf_token }}
 
@@ -137,7 +138,7 @@
             <hr>
             <p class="text-right">
                 </a>
-                <a class="btn btn-primary" href="{{ url_for('.article', id=article.id) }}">
+                <a class="btn btn-primary" href="{{ url_for('.news_article', id=article.id) }}">
                         <i class="fa fa-eye"></i> View
                 </a> 
                 <a class="btn btn-primary" href="{{ url_for('.edit', id=article.id) }}">
