@@ -40,6 +40,7 @@ def edit_news(id):
     news_article = Article.query.get_or_404(id)
 
     news_form = PostNewsArticle()
+
     if news_form.validate_on_submit():
         news_article.body = news_form.post.data
         db.session.add(news_article)
@@ -90,7 +91,7 @@ def create_news():
     human_form = CreateNewHuman()
 
     if news_form.validate_on_submit():
-        article = Article(body=news_form.post.data)
+        article = Article(heading = news_form.heading.data,body=news_form.post.data)
         db.session.add(article)
         db.session.commit()
         flash('Your post is now live!')

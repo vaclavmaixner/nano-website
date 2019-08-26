@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container">
     <!-- 
     <h1>Admin Zone</h1>
@@ -12,20 +11,20 @@
     </div>
     <br>
  -->
- <div class="alert alert-success" role="alert">
-    <h3>Welcome to Admin zone</h3>
-    <p class="lead">
-        Here you can edit the content of this webpage.
-      </p>
-  </div>
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome to Admin zone</h3>
+        <p class="lead">
+            Here you can edit the content of this webpage.
+        </p>
+    </div>
 
 
-  <p>All humans alive:</p>
-  {% for human in humans %}
-  <p>{{human.name}} ____ That is this humans name</p>
-  {% endfor %}
-  <hr>
-  <!-- <p>All humans alive:</p>
+    <p>All humans alive:</p>
+    {% for human in humans %}
+    <p>{{human.name}} ____ That is this humans name</p>
+    {% endfor %}
+    <hr>
+    <!-- <p>All humans alive:</p>
     {% for human in humans %}
     <p>{{human.name}} haoo</p>
     {% endfor %}
@@ -75,13 +74,20 @@
     {% endif %}
     <hr> -->
     <h2>Add News</h2>
-    <form method="POST"  action="{{url_for('create_news')}}">
+    <form method="POST" action="{{url_for('create_news')}}">
         <p>
             {{ news_form.csrf_token }}
-            {{ news_form.post.label }} <br>
-            {{ news_form.post}} <br>
+            {{ news_form.heading.label }}<br> 
+            {{ news_form.heading}}<br>
+         
             {% for error in news_form.post.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %} 
+
+            {{ news_form.post.label }}
+            <br> {{ news_form.post}}
+            <br> {% for error in news_form.post.errors %}
+            <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <!-- <button type="submit" class="btn btn-primary">{{ news_form.submit() }}</button> -->
@@ -91,63 +97,57 @@
 
     <h2>Add Humans</h2>
     <form method="POST" action="{{url_for('create_human')}}">
-        {{ human_form.csrf_token }}
-
-        {{ human_form.name.label }} <br>
-        {{ human_form.name }} <br>
-        {% for error in human_form.name.errors %}
-          <span style="color: red;">[{{ error }}]</span><br>
-          {% endfor %}
-
-        {{ human_form.full_name.label }} <br>
-        {{ human_form.full_name }} <br>
-
-        {{ human_form.position.label }} <br>
-        {{ human_form.position }} <br>
-
-        {{ human_form.email.label }} <br>
-        {{ human_form.email }} <br>
-
-        {{ human_form.telephone.label }} <br>
-        {{ human_form.telephone }} <br>
-
-        {{ human_form.orcid.label }} <br>
-        {{ human_form.orcid }} <br>
+        {{ human_form.csrf_token }} {{ human_form.name.label }}
+        <br> {{ human_form.name }}
+        <br> {% for error in human_form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        <br> {% endfor %} {{ human_form.full_name.label }}
+        <br> {{ human_form.full_name }}
+        <br> {{ human_form.position.label }}
+        <br> {{ human_form.position }}
+        <br> {{ human_form.email.label }}
+        <br> {{ human_form.email }}
+        <br> {{ human_form.telephone.label }}
+        <br> {{ human_form.telephone }}
+        <br> {{ human_form.orcid.label }}
+        <br> {{ human_form.orcid }}
+        <br>
 
         <input type="submit" value="Submit">
-    </form>   
+    </form>
 
- <!-- Navigation for editing different parts of the website -->
- <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">News</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Articles</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">People</a>
-    </li>
-  </ul>
+    <!-- Navigation for editing different parts of the website -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">News</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Articles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">People</a>
+        </li>
+    </ul>
 
     <h2>Edit News</h2>
     {% for article in articles %}
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">New NAP-XPS pump</h5>
+            <h5 class="card-title">{{ article.heading }}</h5>
             <p class="card-text">{{ article.body|safe }}</p>
             <hr>
             <p class="text-right">
                 </a>
                 <a class="btn btn-primary" href="{{ url_for('.news_article', id=article.id) }}">
-                        <i class="fa fa-eye"></i> View
-                </a> 
+                    <i class="fa fa-eye"></i> View
+                </a>
                 <a class="btn btn-primary" href="{{ url_for('.edit_news', id=article.id) }}">
-                        <i class="fa fa-cog"></i> Edit  
+                    <i class="fa fa-cog"></i> Edit
                 </a>
             </p>
         </div>
-    </div></p>
+    </div>
+    </p>
     <br> {% endfor %}
     <hr>
 
@@ -159,11 +159,12 @@
             <p class="card-text">Full name: {{ human.full_name }}</p>
             <p class="card-text">Position: {{ human.position }}</p>
         </div>
-    </div></p>
+    </div>
+    </p>
     <br> {% endfor %}
     <hr>
 
-    
+
     <!-- Form to submit new News post -->
     <!-- <h1>Hi, {{ current_user.username }}!</h1>
     <p>Here you can create new News Article</p>
@@ -180,6 +181,6 @@
         <p>{{ form.submit() }}</p>
     </form>
     {% endif %} -->
-  
+
 </div>
 {% endblock %}
