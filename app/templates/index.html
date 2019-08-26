@@ -1,4 +1,6 @@
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"> {% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
+
 <!-- Page Content -->
 <main role="main">
   <!-- Full Page Image Header with Vertically Centered Content -->
@@ -6,17 +8,13 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="font-weight-light text-center">Welcome to Nanomaterials Group!</h1>
-              <hr>
-              <p class="lead">We are a research group at the Department of Surface and Plasma Science of the Faculty of Mathematics and Physics
-                of the Charles University. We work in three main areas: basic research in nanomaterials, offering open access
-                to several scientific instruments through CERIC, applied research in fuel cell technology. We are among the
-                Large Research Infrastructures supported by the Czech Ministry of Education, Youth and Sports (grants SPL-MSB
-                and OP VVV SPL-MSB).
-            </div>
-          </div>
+          <h1 class="font-weight-light text-center text-light">Welcome to Nanomaterials Group!</h1>
+          <hr>
+          <p class="lead text-light">We are a research group at the Department of Surface and Plasma Science of the Faculty of Mathematics and Physics
+            of the Charles University. We work in three main areas: basic research in nanomaterials, offering open access
+            to several scientific instruments through CERIC, applied research in fuel cell technology. We are among the Large
+            Research Infrastructures supported by the Czech Ministry of Education, Youth and Sports (grants SPL-MSB and OP
+            VVV SPL-MSB).
         </div>
       </div>
     </div>
@@ -42,7 +40,7 @@
         <!-- Example row of columns -->
         <div class="row text-center">
           <div class="col-md-4 align-self-end">
-            <img class="rounded-circle" src="../static/img/science.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle" src="../static/img/technology.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Research</h2>
             <p class="row text-left"> Find out more about our research: instruments we use, grants we have, and our publications.</p>
             <p class="align-self-end">
@@ -50,7 +48,7 @@
             </p>
           </div>
           <div class="col-md-4 align-self-end">
-            <img class="rounded-circle" src="../static/img/technology.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle" src="../static/img/pat_mat.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Students</h2>
             <p class="row text-left">Are you interested in studying nanomaterials? We offer theses as well as summer projects.</p>
             <p class="align-self-end">
@@ -82,7 +80,7 @@
         <div class="col-lg-6 mb-4">
           <div class="card h-100">
             <a href="#">
-              <img class="card-img-top" src="../static/img/thin-film.jpg" alt="" height="150">
+              <img class="card-img-top" src="../static/img/thin-film.jpg" alt="" max-height="10">
             </a>
             <div class="card-body">
               <h4 class="card-title">

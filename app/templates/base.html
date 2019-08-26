@@ -16,6 +16,7 @@
 	
   <!-- Font Awesome CSS -->
   <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
 
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -111,11 +112,7 @@
 </div>
 
 <!-- Body -->
-<style>
-  body {
-    padding-top: 70px
-  }
-</style>
+
 {% block content %}{% endblock %}
 
 
