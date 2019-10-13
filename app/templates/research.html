@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% set active_page = "research" %} {% block content %}
+<div class="container breadcrumb_space">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="./">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Research</li>
+        </ol>
+    </nav>
+    <h1>Research</h1>
+
+    <p>Our main research focus is on the preparation and characterization of nanomaterials, such as nanostructured thin films
+        and nanoparticles. We aim especially for efficient catalysts for fuel cells and electrolyzers.</p>
+    <p>The Nanomaterials Group benefits from the expertise of its senior researchers in surface science and thin film growth.
+        The knowledge and experience are constantly handed down to younger researchers and students, and the scope has expanded
+        to include physical chemistry and electrochemistry.</p>
+    <p>We combine research on model catalysts in ultra-high vacuum or low gas pressures with studies on nanostructured catalysts
+        at near-ambient pressures. The former gives us insight into reaction mechanisms, and the latter indicates suitability
+        of the catalysts for applications. We are also in close cooperation with computational chemists to get further insights.</p>
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary">Instruments</button>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary">Grants</button>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary">Publications</button>
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+{% endblock %}

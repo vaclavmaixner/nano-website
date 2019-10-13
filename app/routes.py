@@ -123,9 +123,9 @@ def detail(name):
     return render_template('detail.html', human=human)
 
 
-@app.route('/our-research')
-def our_research():
-    return render_template('our-research.html')
+@app.route('/research')
+def research():
+    return render_template('research.html')
 
 
 @app.route('/publications')

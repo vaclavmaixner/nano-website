@@ -1,3 +1,33 @@
 p.red_highlight {
     color: red;
 }
+
+.breadcrumb_space {
+    padding-top: 12px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+.Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+.Site-content {
+flex: 1;
+}
+  /* Custom page CSS
+   * Not required for template or sticky footer method.
+   * -------------------------------------------------- */
+  
+   /* .container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+  }
+  .container .text-muted {
+    margin: 20px 0;
+  } */
