@@ -4,11 +4,11 @@
     <h1>Edit article</h1>
     <form action="" method="post">
             {{ form.hidden_tag() }}
-            <p>
+            <p>p
                 {{ form.heading.label }} <br>
-                {{ form.heading(cols=100, rows=32) }} <br>
+                {{ form.heading(cols=100, rows=1) }} <br>
                 {{ form.post.label }} <br>
-                {{ form.post(cols=100, rows=32) }} <br>
+                {{ form.post(cols=100, rows=16) }} <br>
                 {% for error in form.post.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}

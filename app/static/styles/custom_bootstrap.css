@@ -2,8 +2,12 @@ p.red_highlight {
     color: red;
 }
 
-.breadcrumb_space {
+.breadcrumb-space {
     padding-top: 12px;
+}
+
+.breadcrumb {
+  padding: 3px 15px !important;
 }
 
 /* Sticky footer styles
@@ -19,15 +23,19 @@ p.red_highlight {
 .Site-content {
 flex: 1;
 }
-  /* Custom page CSS
-   * Not required for template or sticky footer method.
-   * -------------------------------------------------- */
-  
-   /* .container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
+
+/* Navbar dropdown on hover with arrow movement */
+@media (min-width:480px) {
+  /* .dropdown:hover:after {
+    transition: transform 0.15s linear; 
   }
-  .container .text-muted {
-    margin: 20px 0;
+  
+  .show.dropdown .dropdown:hover {
+    transform: translateY(3px);
   } */
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}

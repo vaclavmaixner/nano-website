@@ -45,7 +45,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
               <!--<li class="nav-item active">
             <a class="nav-link" href="#">Home
               <span class="sr-only">(current)</span>
@@ -53,9 +53,6 @@
           </li> -->
               <li class="nav-item {{ 'active' if active_page == 'news' else '' }}">
                 <a class="nav-link" href="/news">News</a>
-              </li>
-              <li class="nav-item {{ 'active' if active_page == 'research' else '' }}">
-                <a class="nav-link" href="/research">Research</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -70,6 +67,9 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">CERIC</a>
                 </div>
+              </li>
+              <li class="nav-item {{ 'active' if active_page == 'ceric' else '' }}">
+                <a class="nav-link" href="/news">CERIC</a>
               </li>
               <!--<li class="nav-item">
             <a class="nav-link" href="#">Publications</a>
@@ -89,7 +89,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
-                  About Us
+                 People
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Contact</a>
@@ -100,6 +100,12 @@
                   <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
                   {% endif %}
                 </div>
+              </li>
+              <li class="nav-item {{ 'active' if active_page == 'opvvv' else '' }}">
+                <a class="nav-link" href="#">OPVVV</a>
+              </li>
+              <li class="nav-item {{ 'active' if active_page == 'contact' else '' }}">
+                <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
             <!-- <form class="form-inline mt-2 mt-md-0">

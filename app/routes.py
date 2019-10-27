@@ -51,6 +51,19 @@ def edit_news(id):
     news_form.post.data = news_article.body
     return render_template('edit_post.html', form=news_form)
 
+
+@app.route('/delete_article/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def delete_article(id):
+    news_article = Article.query.get_or_404(id)
+
+    db.session.delete(news_article)
+    db.session.commit()
+    flash('The post has been deleted.')
+
+    return redirect(url_for('admin', id=news_article.id))
+
+
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required
 def admin():

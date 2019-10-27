@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
+<div class="container breadcrumb-space">
     <!-- 
     <h1>Admin Zone</h1>
     <p>All the admins:</p>
@@ -12,19 +12,18 @@
     <br>
  -->
     <div class="alert alert-success" role="alert">
-        <h3>Welcome to Admin zone</h3>
+        <h3>Welcome to Admin zone!</h3>
         <p class="lead">
             Here you can edit the content of this webpage.
         </p>
     </div>
 
-    <p>All humans alive:</p>
+    <!-- <p>All humans alive:</p>
     {% for human in humans %}
-   
-
     <p>{{human.full_name}} ____ That is this humans name</p>
     {% endfor %}
-    <hr>
+    <hr> -->
+
     <!-- <p>All humans alive:</p>
     {% for human in humans %}
     <p>{{human.name}} haoo</p>
@@ -77,16 +76,12 @@
     <h2>Add News</h2>
     <form method="POST" action="{{url_for('create_news')}}">
         <p>
-            {{ news_form.csrf_token }}
-            {{ news_form.heading.label }}<br> 
-            {{ news_form.heading}}<br>
-         
-            {% for error in news_form.post.errors %}
+            {{ news_form.csrf_token }} {{ news_form.heading.label }}
+            <br> {{ news_form.heading(cols=96, rows=1)}}
+            <br> {% for error in news_form.post.errors %}
             <span style="color: red;">[{{ error }}]</span>
-            {% endfor %} 
-
-            {{ news_form.post.label }}
-            <br> {{ news_form.post}}
+            {% endfor %} {{ news_form.post.label }}
+            <br> {{ news_form.post(cols=96, rows=8)}}
             <br> {% for error in news_form.post.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
@@ -96,14 +91,50 @@
         <input type="submit" value="Submit">
     </form>
 
+    <hr>
+
     <h2>Add Humans</h2>
-    <form method="POST" action="{{url_for('create_human')}}">
-        {{ human_form.csrf_token }} {{ human_form.name.label }}
-        <br> {{ human_form.name }}
-        <br> {% for error in human_form.name.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        <br> {% endfor %} {{ human_form.full_name.label }}
+    <div class="row">
+        <div class="col">
+            {{ human_form.full_name.label }}
+            <br>{{ human_form.full_name }}
+
+        </div>
+        <div class="col">
+            {{ human_form.name.label }}
+            <br> {{ human_form.name }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ human_form.position.label }}
+            <br> {{ human_form.position }}
+        </div>
+        <div class="col">
+            {{ human_form.email.label }}
+            <br> {{ human_form.email }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ human_form.telephone.label }}
+            <br> {{ human_form.telephone }}
+        </div>
+        <div class="col">
+            {{ human_form.orcid.label }}
+            <br> {{ human_form.orcid }}
+        </div>
+    </div>
+    <input type="submit" value="Submit">
+    <br>
+
+    <!-- <form class="form form-horizontal" method="POST" action="{{url_for('create_human')}}">
+        {{ human_form.csrf_token }} {{ human_form.full_name.label }}
         <br> {{ human_form.full_name }}
+        <br>{{ human_form.name.label }}
+        <br> {{ human_form.name }} {% for error in human_form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
         <br> {{ human_form.position.label }}
         <br> {{ human_form.position }}
         <br> {{ human_form.email.label }}
@@ -115,7 +146,7 @@
         <br>
 
         <input type="submit" value="Submit">
-    </form>
+    </form> -->
 
     <!-- Navigation for editing different parts of the website -->
     <ul class="nav nav-tabs">
@@ -138,13 +169,18 @@
             <p class="card-text">{{ article.body|safe }}</p>
             <hr>
             <p class="text-right">
-                </a>
                 <a class="btn btn-primary" href="{{ url_for('.news_article', id=article.id) }}">
                     <i class="fa fa-eye"></i> View
                 </a>
-                <a class="btn btn-primary" href="{{ url_for('.edit_news', id=article.id) }}">
+                <a class="btn btn-secondary" href="{{ url_for('.edit_news', id=article.id) }}">
                     <i class="fa fa-cog"></i> Edit
                 </a>
+                <a class="btn btn-danger" href="{{ url_for('.delete_article', id=article.id) }}">
+                    <i class="fa fa-eye"></i> Delete
+                </a>
+
+
+
             </p>
         </div>
     </div>

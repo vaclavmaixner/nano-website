@@ -1,49 +1,119 @@
 {% extends "base.html" %} {% set active_page = "people" %} {% block content %}
-<div class="container">
+<div class="container breadcrumb-space">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="./">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="./">About Us</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">People</li>
+    </ol>
+  </nav>
 
-    <div class="row">
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <img class="img-thumbnail" src="../static/img/matolinova.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
-              <h5 class="card-title">Iva Matolínová</h5>
-              <p class="card-text text-left"><b>Position: </b>Associate professor, Group leader</p>
-              <p class="card-text text-left"><b>Email: </b>Associate professor, Group leader</p>
-              <p class="card-text text-left"><b>Telephone: </b>Associate professor, Group leader</p>
-              <p class="card-text text-left"><b>Links: </b><a href="" >Faculty web page</a> </p>
-              <a href="#" class="btn btn-primary">Publications</a>
-            </div>
-          </div>
-        </div>
-      </div><!-- /row -->
 
-  <br>
-  <h2>Group Leader </h2>
+  <h2>People</h2>
   <div class="row">
     <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="../static/img/matolinova.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <h5 class="card-title">Dr. Iva Matolínová</h5>
+          <p class="card-text text-left">
+            <b>Position: </b>Associate professor, Group leader</p>
+          <p class="card-text text-left">
+            <b>Email: </b>e@mail.com</p>
+          <p class="card-text text-left">
+            <b>Telephone: </b>+42011122233</p>
+          <p class="card-text text-left">
+            <b>Links: </b>
+            <a href="https://physics.mff.cuni.cz/kfpp/php/journal-autor.php?id=18&langen=1">Publications</a>
+          </p>
+          <a href="" class="btn btn-primary">View more</a>
+        </div>
+      </div>
     </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/82c-SkorometsViktoriia.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <h5 class="card-title">Marcela Chvalkovská</h5>
+          <p class="card-text text-left">
+            <b>Position: </b>Administrative secretary</p>
+          <p class="card-text text-left">
+            <b>Email: </b>e@mail.com</p>
+          <p class="card-text text-left">
+            <b>Telephone: </b>+42011122233</p>
+          <p class="card-text text-left">
+            <b>Links: </b>
+            <a href="#">Web page</a>
+          </p>
+          <a href="#" class="btn btn-primary">View more</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/230c-ChvalkovskaMarcela.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <h5 class="card-title">Viktoriia Skoromets</h5>
+          <p class="card-text text-left">
+            <b>Position: </b>Finance and administration</p>
+          <p class="card-text text-left">
+            <b>Email: </b>e@mail.com</p>
+          <p class="card-text text-left">
+            <b>Telephone: </b>+42011122233</p>
+          <p class="card-text text-left">
+            <b>Links: </b>
+            <a href=""></a>
+          </p>
+          <a href="#" class="btn btn-primary">View more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body text-center">
           <img class="img-thumbnail" src="../static/img/matolinova.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
           <h5 class="card-title">Iva Matolínová</h5>
+          <p class="text-muted">Group Leader</p>
           <p class="card-text text-left">
-            <b>Position: </b>Associate professor, Group leader</p>
+            <b>Email: </b>e@mail.com</p>
           <p class="card-text text-left">
-            <b>Email: </b>Associate professor, Group leader</p>
-          <p class="card-text text-left">
-            <b>Telephone: </b>Associate professor, Group leader</p>
+            <b>Telephone: </b>+42011122233</p>
           <p class="card-text text-left">
             <b>Links: </b>
-            <a href="">Faculty web page</a>
+            <a href="https://physics.mff.cuni.cz/kfpp/php/journal-autor.php?id=18&langen=1">Publications</a>
           </p>
-          <a href="#" class="btn btn-primary">Publications</a>
+          <a href="#" class="btn btn-primary">View more</a>
         </div>
       </div>
     </div>
   </div>
   <!-- /row -->
-  <h2>Administration </h2>
+
+  <br>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="../static/img/matolinova.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <a href="#"><h5 class="card-title">Iva Matolínová</h5></a>
+          <p class="text-muted">Group Leader</p>
+          <!-- <a href="#" class="btn btn-primary">More</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row -->
+  <!-- <h2>Administration </h2>
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
@@ -72,9 +142,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- /row -->
 
 </div>
+
 <!-- /container -->
 {% endblock %}
