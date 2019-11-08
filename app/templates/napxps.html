@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% set active_page = "research" %} {% block content %}
+<div class="container breadcrumb-space">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="./">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/instruments">Instruments</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">NAP-XPS</li>
+        </ol>
+    </nav>
+    <h1 class="font-weight-light">NAP-XPS and UPS</h1>
+    <a href="../static/img/instruments/nap-xps.jpg" data-toggle="lightbox" data-title="NAP-XPS and UPS" class="rounded img-fluid">
+        <img src="../static/img/instruments/nap-xps.jpg" class="rounded img-fluid">
+        <figcaption class="figure-caption">Near ambient pressure XPS and UPS</figcaption>
+        <!-- <img src="../static/img/instruments/nap-xps.jpg" class="rounded img-fluid" style="max-height:400px"> -->
+    </a>
+    <br>
+    <br>
+    <!-- <img src="../static/img/instruments/nap-xps.jpg" class="img-fluid" alt="Responsive image"> -->
+    <p>X-ray photoelectron spectroscopy (XPS) is a surface-sensitive quantitative spectroscopic technique, which measures the
+        elemental composition, empirical formula, chemical state, and electronic state of the top approximately 10 nm of
+        a material. XPS spectra are obtained by irradiating the material with a beam of X-rays while simultaneously measuring
+        the number of electrons emitted by the material in dependence on their kinetic energy.
+    </p>
+    <p>Running the X-ray source and the electron analyzer requires high vacuum (p ~ 10−8 mbar) conditions in the analysis chamber
+        and, therefore, conventional XPS is possible only under UHV conditions, making it difficult to conduct investigations
+        of surfaces under real-world conditions (i.e. in the presence of gases and possibly liquids), such as is the case
+        of interfacial chemical reactions in catalysis, chemical vapor deposition, electrochemistry, and environmental chemistry.
+        Near-ambient-pressure XPS (NAP-XPS) is an XPS system capable of operating at pressures of a few tens of millibars.
+        We can now probe chemical interactions on the atomic level for vapor–solid interfaces. NAP-XPS also allows to investigate
+        electronic and structural properties of small organics.</p>
+    <div class="card">
+        <div class="card-body">
+            <ol class="list-group">
+                <a href="">
+                    <li>Specifications</li>
+                </a>
+                <a href="">
+                    <li>Description of the apparatus</li>
+                </a>
+                <a href="">
+                    <li>Publications</li>
+                </a>
+                <a href="">
+                    <li>Contact</li>
+                </a>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}

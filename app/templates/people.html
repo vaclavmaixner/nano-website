@@ -5,12 +5,21 @@
       <li class="breadcrumb-item">
         <a href="./">Home</a>
       </li>
-      <li class="breadcrumb-item">
-        <a href="./">About Us</a>
-      </li>
       <li class="breadcrumb-item active" aria-current="page">People</li>
     </ol>
   </nav>
+
+
+  {% for human in people %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ human.full_name }}</h5>
+            <a style="float: right;" href="{{ url_for('.news_article', id=article.id) }}">View</a>
+            <!-- <img src="static/img/ceo.jpeg" width="50" height="50">
+            <img src="{{url_for('static', variable="img", filename='img/ceo.jpeg')}}" /> -->
+        </div>
+    </div>
+    <br> {% endfor %}
 
 
   <h2>People</h2>

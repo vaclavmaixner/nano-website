@@ -39,8 +39,9 @@ class Article(db.Model):
 
 class Human(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True, unique=True)
+    slug = db.Column(db.String(64), index=True, unique=True)
     full_name = db.Column(db.String(64), index=True, unique=True)
+    full_name_cz = db.Column(db.String(64), index=True, unique=True)
     position = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
     telephone = db.Column(db.String(120))
@@ -49,7 +50,7 @@ class Human(db.Model):
     orcid = db.Column(db.String(64))
     researcher_id = db.Column(db.String(64))
     scopus_id = db.Column(db.String())
-    #about_text = db.Column(db.String(64))
+    about_text = db.Column(db.String(64))
 
     def __repr__(self):
         return '<Human {}>'.format(self.full_name)

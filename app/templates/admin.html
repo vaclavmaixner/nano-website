@@ -16,6 +16,17 @@
         <p class="lead">
             Here you can edit the content of this webpage.
         </p>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="/edit-news">Edit news</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/edit-people">Edit people</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/edit-articles">Edit articles</a>
+            </div>
+        </div>
     </div>
 
     <!-- <p>All humans alive:</p>
@@ -73,36 +84,19 @@
     <p>{{ new_human_form.submit() }}</p>
     {% endif %}
     <hr> -->
-    <h2>Add News</h2>
-    <form method="POST" action="{{url_for('create_news')}}">
-        <p>
-            {{ news_form.csrf_token }} {{ news_form.heading.label }}
-            <br> {{ news_form.heading(cols=96, rows=1)}}
-            <br> {% for error in news_form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %} {{ news_form.post.label }}
-            <br> {{ news_form.post(cols=96, rows=8)}}
-            <br> {% for error in news_form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <!-- <button type="submit" class="btn btn-primary">{{ news_form.submit() }}</button> -->
-        <!--## <p>{{ news_form.submit() }}</p> -->
-        <input type="submit" value="Submit">
-    </form>
 
     <hr>
 
     <h2>Add Humans</h2>
     <div class="row">
         <div class="col">
-            {{ human_form.full_name.label }}
+            {{ human_form.csrf_token }} {{ human_form.full_name.label }}
             <br>{{ human_form.full_name }}
 
         </div>
         <div class="col">
-            {{ human_form.name.label }}
-            <br> {{ human_form.name }}
+            {{ human_form.full_name_cz.label }}
+            <br> {{ human_form.full_name_cz }}
         </div>
     </div>
     <div class="row">
@@ -121,32 +115,40 @@
             <br> {{ human_form.telephone }}
         </div>
         <div class="col">
+            {{ human_form.links.label }}
+            <br> {{ human_form.links }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             {{ human_form.orcid.label }}
             <br> {{ human_form.orcid }}
         </div>
+        <div class="col">
+            {{ human_form.researcher_id.label }}
+            <br> {{ human_form.researcher_id }}
+        </div>
     </div>
+    <div class="row">
+        <div class="col">
+            {{ human_form.scopus_id.label }}
+            <br> {{ human_form.scopus_id }}
+        </div>
+        <div class="col">
+            {{ human_form.slug.label }}
+            <br> {{ human_form.slug }}
+        </div>
+    </div>
+    <div class="row">
+            <div class="col">
+                {{ human_form.about_text.label }}
+                <br> {{ human_form.about_text }}
+            </div>
+    </div>
+    
+    {{ human_form.submit }}
     <input type="submit" value="Submit">
     <br>
-
-    <!-- <form class="form form-horizontal" method="POST" action="{{url_for('create_human')}}">
-        {{ human_form.csrf_token }} {{ human_form.full_name.label }}
-        <br> {{ human_form.full_name }}
-        <br>{{ human_form.name.label }}
-        <br> {{ human_form.name }} {% for error in human_form.name.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-        <br> {{ human_form.position.label }}
-        <br> {{ human_form.position }}
-        <br> {{ human_form.email.label }}
-        <br> {{ human_form.email }}
-        <br> {{ human_form.telephone.label }}
-        <br> {{ human_form.telephone }}
-        <br> {{ human_form.orcid.label }}
-        <br> {{ human_form.orcid }}
-        <br>
-
-        <input type="submit" value="Submit">
-    </form> -->
 
     <!-- Navigation for editing different parts of the website -->
     <ul class="nav nav-tabs">
@@ -161,32 +163,7 @@
         </li>
     </ul>
 
-    <h2>Edit News</h2>
-    {% for article in articles %}
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ article.heading }}</h5>
-            <p class="card-text">{{ article.body|safe }}</p>
-            <hr>
-            <p class="text-right">
-                <a class="btn btn-primary" href="{{ url_for('.news_article', id=article.id) }}">
-                    <i class="fa fa-eye"></i> View
-                </a>
-                <a class="btn btn-secondary" href="{{ url_for('.edit_news', id=article.id) }}">
-                    <i class="fa fa-cog"></i> Edit
-                </a>
-                <a class="btn btn-danger" href="{{ url_for('.delete_article', id=article.id) }}">
-                    <i class="fa fa-eye"></i> Delete
-                </a>
 
-
-
-            </p>
-        </div>
-    </div>
-    </p>
-    <br> {% endfor %}
-    <hr>
 
     <h2>Edit Humans</h2>
     {% for human in humans %}
@@ -195,6 +172,9 @@
             <h5 class="card-title">A human</h5>
             <p class="card-text">Full name: {{ human.full_name }}</p>
             <p class="card-text">Position: {{ human.position }}</p>
+            <a class="btn btn-danger" href="{{ url_for('.delete-human', id=human.id) }}">
+                <i class="fa fa-eye"></i> Delete
+            </a>
         </div>
     </div>
     </p>

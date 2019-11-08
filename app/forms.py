@@ -16,8 +16,9 @@ class PostNewsArticle(FlaskForm):
     submit = SubmitField('Submit News')
 
 class CreateNewHuman(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    slug = StringField('Slug', validators=[DataRequired()])
     full_name = StringField('Full name', validators=[DataRequired()])
+    full_name_cz = StringField('Full name cz', validators=[DataRequired()])
     position = StringField('Position', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
     telephone = StringField('Telephone')
@@ -26,4 +27,5 @@ class CreateNewHuman(FlaskForm):
     orcid = StringField('ORCID')
     researcher_id = StringField('Reasearcher id')
     scopus_id = StringField('SCOPUS id')
+    about_text = StringField('Text about the person')
     submit = SubmitField('Create Human')
