@@ -3,6 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
 from flask_login import UserMixin
 from app import login
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 
 @login.user_loader
@@ -39,18 +41,26 @@ class Article(db.Model):
 
 class Human(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    group = db.Column(db.String(), index=True)
     slug = db.Column(db.String(64), index=True, unique=True)
     full_name = db.Column(db.String(64), index=True, unique=True)
     full_name_cz = db.Column(db.String(64), index=True, unique=True)
-    position = db.Column(db.String(64))
+    position = db.Column(db.String())
     email = db.Column(db.String(120), index=True, unique=True)
     telephone = db.Column(db.String(120))
-    links = db.Column(db.String(120))
+    links = db.Column(db.String())
     ##ids = db.Column(db.String())
     orcid = db.Column(db.String(64))
     researcher_id = db.Column(db.String(64))
     scopus_id = db.Column(db.String())
-    about_text = db.Column(db.String(64))
+    about_text = db.Column(db.String())
 
     def __repr__(self):
         return '<Human {}>'.format(self.full_name)
+
+
+
+# admin = Admin()
+# Admin.add_view(ModelView(Article, db.session))
+# Admin.add_view(ModelView(Human, db.session))
+# Admin.add_view(ModelView(Article, db.session))

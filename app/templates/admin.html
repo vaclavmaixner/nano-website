@@ -140,13 +140,17 @@
         </div>
     </div>
     <div class="row">
-            <div class="col">
-                {{ human_form.about_text.label }}
-                <br> {{ human_form.about_text }}
-            </div>
+        <div class="col">
+            {{ human_form.about_text.label }}
+            <br> {{ human_form.about_text }}
+        </div>
+        <div class="col">
+            {{ human_form.group.label }}
+            <br> {{ human_form.group }}
+        </div>
     </div>
-    
-    {{ human_form.submit }}
+
+    <!-- {{ human_form.submit }} -->
     <input type="submit" value="Submit">
     <br>
 

@@ -17,6 +17,7 @@ class PostNewsArticle(FlaskForm):
 
 class CreateNewHuman(FlaskForm):
     slug = StringField('Slug', validators=[DataRequired()])
+    group = StringField('Group', validators=[DataRequired()])
     full_name = StringField('Full name', validators=[DataRequired()])
     full_name_cz = StringField('Full name cz', validators=[DataRequired()])
     position = StringField('Position', validators=[DataRequired()])

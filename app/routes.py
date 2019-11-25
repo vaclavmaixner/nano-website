@@ -89,7 +89,7 @@ def delete_news(id):
     return redirect(url_for('edit_news', id=news_article.id))
 
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/admin2', methods=['GET', 'POST'])
 @login_required
 def admin():
     humans = Human.query.all()
@@ -151,6 +151,8 @@ def create_human():
         db.session.add(new_human)
         db.session.commit()
         flash('Your new human is now alive!')
+    else:
+        flash('not validated')
 
     return render_template('admin.html', news_form=news_form, human_form=human_form)
 
