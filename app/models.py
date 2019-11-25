@@ -59,7 +59,7 @@ class Human(db.Model):
         return '<Human {}>'.format(self.full_name)
 
 
-
+# admin.add_view(ModelView(Article, db.session))
 # admin = Admin()
 # Admin.add_view(ModelView(Article, db.session))
 # Admin.add_view(ModelView(Human, db.session))
