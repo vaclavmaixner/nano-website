@@ -1,11 +1,37 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
+<div class="container breadcrumb-space">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="../">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/people">People</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ human.full_name}}</li>
+        </ol>
+    </nav>
+</div>
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Human</h5>
-            <p class="card-text">The human is: <b>{{ human }}</b></p>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="http://via.placeholder.com/100x100" class="card-img-top" alt="..." height: "80">
+        </div>
+        <div class="col-md-9">
+            <h4 class="card-title">{{ human.full_name}}</h4>
+            <h5 class="card-title text-muted">{{ human.full_name_cz}}</h5>
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>
+                        <b>Position:</b>
+                    </p>
+                </div>
+                <div class="col-2-10">
+                    <p>{{human.position}}</p>
+                </div>
+            </div>
+
+            <p class="card-text">{{ human.about_text }}</p>
         </div>
     </div>
 </div>

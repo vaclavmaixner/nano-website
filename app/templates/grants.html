@@ -13,4 +13,14 @@
         <div class="col-sm-12">
             <p></p>
         </div>
+    </div>
+    {% for grant in grants %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ grant.heading }}</h5>
+            <p>{{ grant.body }}</p>
+            <a style="float: right;" href="grant/{{ grant.id }}">View</a>
+        </div>
+    </div>
+    <br> {% endfor %}
     {% endblock %}

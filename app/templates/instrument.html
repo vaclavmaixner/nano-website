@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<div class="container breadcrumb-space">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="./">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="/instruments">Instruments</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ instrument.heading}}</li>
+      </ol>
+    </nav>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ instrument.heading }}</h5>
+            <p class="card-text">{{ instrument.body|safe }}</p>
+        </div>
+    </div>
+
+    <p><a href="/instruments">Return back</a></p>
+</div>
+{% endblock %}

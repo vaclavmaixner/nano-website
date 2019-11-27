@@ -3,7 +3,7 @@ from app import db
 from flask import render_template, flash, redirect, url_for, request
 from app.forms import LoginForm, PostNewsArticle, CreateNewHuman
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Article, Human
+from app.models import User, Article, Human, Grant, Instrument, Thesis
 from werkzeug.urls import url_parse
 from datetime import datetime
 
@@ -192,7 +192,27 @@ def fuel_cells():
 
 @app.route('/instruments')
 def instruments():
-    return render_template('instruments.html')
+    instruments = Instrument.query.all()
+    return render_template('instruments.html', instruments=instruments)
+
+
+@app.route('/instruments/<int:id>')
+def instrument(id):
+    instrument = Instrument.query.get_or_404(id)
+    return render_template('instrument.html', instrument=instrument)
+
+
+@app.route('/grants')
+def grants():
+    grants = Grant.query.all()
+    return render_template('grants.html', grants=grants)
+
+
+@app.route('/grant/<int:id>')
+def grant(id):
+    grant = Grant.query.get_or_404(id)
+    return render_template('grant.html', grant=grant)
+
 
 
 @app.route('/instruments/napxps')
@@ -223,11 +243,6 @@ def pacng():
 @app.route('/publications')
 def publications():
     return render_template('publications.html')
-
-
-@app.route('/grants')
-def grants():
-    return render_template('grants.html')
 
 
 @app.route('/for-students')
@@ -264,6 +279,12 @@ def about_us():
 def people():
     people = Human.query.all()
     return render_template('people.html', people=people)
+
+
+@app.route('/people/<int:id>')
+def human(id):
+    human = Human.query.get_or_404(id)
+    return render_template('human.html', human=human)
 
 
 @app.route('/contact')

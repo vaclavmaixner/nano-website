@@ -8,21 +8,56 @@
       <li class="breadcrumb-item active" aria-current="page">People</li>
     </ol>
   </nav>
-
-
-  {% for human in people %}
-    <div class="card">
-        <div class="card-body">
+</div>
+<div class="container">
+  <h2 class="font-weight-light">Group Leader</h2>
+  <div class="row">
+    {% for human in people %} {% if human.group == 'group_leader'%}
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="http://via.placeholder.com/120x150" alt="Card image" max-width="140" max-height="140">
+          <!-- <div class="img-square-wrapper">
+                <img class="" src="http://via.placeholder.com/180x120" alt="Card image cap">
+            </div> -->
+          <a href="/people/{{ human.id }}">
             <h5 class="card-title">{{ human.full_name }}</h5>
-            <a style="float: right;" href="{{ url_for('.news_article', id=article.id) }}">View</a>
-            <!-- <img src="static/img/ceo.jpeg" width="50" height="50">
+          </a>
+          <p class="text-muted">Group Leader</p>
+          <!-- <img src="static/img/ceo.jpeg" width="50" height="50">
             <img src="{{url_for('static', variable="img", filename='img/ceo.jpeg')}}" /> -->
         </div>
+      </div>
+
     </div>
-    <br> {% endfor %}
+  </div>
+  <br> {% endif %}{% endfor %}
+
+  <h2 class="font-weight-light">Administration</h2>
+  <div class="row">
+    {% for human in people %}
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img class="img-thumbnail" src="http://via.placeholder.com/120x150" alt="Card image" max-width="140" max-height="140">
+          <!-- <div class="img-square-wrapper">
+                <img class="" src="http://via.placeholder.com/180x120" alt="Card image cap">
+            </div> -->
+          <a href="/people/{{ human.id }}">
+            <h5 class="card-title">{{ human.full_name }}</h5>
+          </a>
+          <p class="text-muted">Group Leader</p>
+          <!-- <img src="static/img/ceo.jpeg" width="50" height="50">
+            <img src="{{url_for('static', variable="img", filename='img/ceo.jpeg')}}" /> -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <br>
 
 
-  <h2>People</h2>
+  <!-- <h2>People</h2>
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
@@ -46,7 +81,8 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body text-center">
-          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/82c-SkorometsViktoriia.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/82c-SkorometsViktoriia.jpg" alt="Generic placeholder image"
+            max-width="140" max-height="140">
           <h5 class="card-title">Marcela Chvalkovská</h5>
           <p class="card-text text-left">
             <b>Position: </b>Administrative secretary</p>
@@ -65,7 +101,8 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body text-center">
-          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/230c-ChvalkovskaMarcela.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
+          <img class="img-thumbnail" src="https://nano.mff.cuni.cz/images/big_img/230c-ChvalkovskaMarcela.jpg" alt="Generic placeholder image"
+            max-width="140" max-height="140">
           <h5 class="card-title">Viktoriia Skoromets</h5>
           <p class="card-text text-left">
             <b>Position: </b>Finance and administration</p>
@@ -105,55 +142,39 @@
       </div>
     </div>
   </div>
-  <!-- /row -->
 
   <br>
-  
+
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body text-center">
           <img class="img-thumbnail" src="../static/img/matolinova.jpg" alt="Generic placeholder image" max-width="140" max-height="140">
-          <a href="#"><h5 class="card-title">Iva Matolínová</h5></a>
+          <a href="#">
+            <h5 class="card-title">Iva Matolínová</h5>
+          </a>
           <p class="text-muted">Group Leader</p>
-          <!-- <a href="#" class="btn btn-primary">More</a> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /row -->
-  <!-- <h2>Administration </h2>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Marcelka</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary"></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Viktorie</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary"></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Zdeňka</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary"></a>
         </div>
       </div>
     </div>
   </div> -->
-  <!-- /row -->
-
+  <br>
+  <h2>Former employees and students</h2>
+  <br>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Dr. Alfons
+      <span class="badge badge-primary badge-pill">researcher</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Mgr. Bob
+      <span class="badge badge-primary badge-pill">master's student</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Bc. Cecil
+      <span class="badge badge-primary badge-pill">phd student</span>
+    </li>
+  </ul>
 </div>
 
 <!-- /container -->

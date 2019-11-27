@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="./">Home</a>
+                <a href="../">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Instruments</li>
         </ol>
@@ -11,31 +11,62 @@
     <h1 class="font-weight-light">Instruments</h1>
     <p>Text.</p>
 
-    <!-- <div class="container-fluid"> -->
-        <div class="row">
-            <div class="col-12 mt-3">
-                <div class="card">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="" src="http://via.placeholder.com/200x180" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="/instruments/napxps">NAP-XPS and UPS</a></h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Near-ambient-pressure X-ray and ultraviolet photoelectron spectroscopies</h6>
-                            <p class="card-text">X-ray photoelectron spectroscopy (XPS) is a surface-sensitive quantitative spectroscopic technique,
-                                which measures the elemental composition, empirical formula, chemical state, and electronic
-                                state of the top approximately 10 nm of a material. XPS spectra are obtained by irradiating
-                                the material with a beam of X-rays while simultaneously…
-                            </p>
-                            <a href="/instruments/napxps" class="btn btn-primary float-right">More</a>
-                        </div>
+    {% for instrument in instruments %}
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="card">
+                <img src="http://via.placeholder.com/500x100" class="card-img-top" alt="..." height: "120">
+                <div class="card-horizontal">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="/instruments/{{instrument.id}}">{{ instrument.heading}}</a>
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ instrument.full_heading }}</h6>
+                        <p class="card-text"> {{ instrument.preview_text }}
+                            <br>   
+                            <a href="/instruments/{{instrument.id}}" class="btn btn-primary float-right">More</a>
+                        </p>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Contact: <a href="#">Dr. Břetislav Šmíd</a>, <a href="#">Dr. Mykhailo Vorokhta</a></small>
-                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Contact: {{ instrument.footnote | safe}}
+                    </small>
                 </div>
             </div>
         </div>
+    </div>
+    <br> {% endfor %}
+
+    <!-- <div class="container-fluid"> -->
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper">
+                        <img class="" src="http://via.placeholder.com/200x180" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="/instruments/napxps">NAP-XPS and UPS</a>
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Near-ambient-pressure X-ray and ultraviolet photoelectron spectroscopies</h6>
+                        <p class="card-text">X-ray photoelectron spectroscopy (XPS) is a surface-sensitive quantitative spectroscopic technique,
+                            which measures the elemental composition, empirical formula, chemical state, and electronic state
+                            of the top approximately 10 nm of a material. XPS spectra are obtained by irradiating the material
+                            with a beam of X-rays while simultaneously…
+                        </p>
+                        <a href="/instruments/napxps" class="btn btn-primary float-right">More</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Contact:
+                        <a href="#">Dr. Břetislav Šmíd</a>,
+                        <a href="#">Dr. Mykhailo Vorokhta</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- </div> -->
 
 </div>
